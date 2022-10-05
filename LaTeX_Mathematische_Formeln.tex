@@ -1,0 +1,136 @@
+
+\documentclass[ 12pt, a4paper, parskip=full]{scrartcl}
+
+\title{\LaTeX\ \\Mathematical formulas} 
+\author{Peter Kessler}        
+\date{\today}                 
+
+\usepackage[utf8]{inputenc} 
+\usepackage[english]{babel} 
+\usepackage[T1]{fontenc}    
+
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\pagebreak
+\tableofcontents
+
+\pagebreak
+\section{Working with mathematical formulas}
+LaTeX supports the insertion of mathematical formulas like hardly any other typesetting program. Formulas can be inserted either within a paragraph ("inline") or as a separate paragraph in a document.
+
+\subsection{Inline Formulas}
+Pythagoras says: If $a$ and $b$ are the 
+cathetus and $c$ the hypotenuse, then $a^2+b^2=c^2$. 
+Thus for the hypotenuse: $c=\sqrt{a^2+b^2}$.
+
+\subsection{Separated Formulas}
+Pythagoras says: If $a$ and $b$ are the cathets and $c$ is the hypotenuse, then holds: 
+\begin{displaymath}
+  a^2+b^2=c^2 
+\end{displaymath}
+
+Thus the following applies for the hypotenuse: 
+\begin{displaymath}
+  c=\sqrt{a^2+b^2} 
+\end{displaymath}
+
+\subsection{Separated Formulas Block}
+
+Pythagoras says: If $a$ and $b$ are the cathets and $c$ is the hypotenuse, then holds: 
+\begin{displaymath} % only one formula allowed
+  a^2+b^2=c^2 
+\end{displaymath} 
+ 
+Thus the following applies for $a$, $b$ and $c$: 
+\begin{displaymath} % only one formula allowed
+  a=\sqrt{b^2+c^2} 
+\end{displaymath} 
+\begin{displaymath} % only one formula allowed
+  b=\sqrt{c^2-a^2} 
+\end{displaymath} 
+\begin{displaymath} % only one formula allowed
+  c=\sqrt{a^2+b^2} 
+\end{displaymath} 
+
+Thus the following applies for $a$, $b$ and $c$:
+\begin{gather*} % allows a bunch of formulas
+  a=\sqrt{b^2+c^2}  \\ 
+  b=\sqrt{c^2-a^2}  \\
+  c=\sqrt{a^2+b^2} 
+\end{gather*}
+
+Thus the following applies for $a$, $b$ and $c$:
+\begin{align*} % allows a bunch of formulas
+  a=\sqrt{b^2+c^2}  \\ 
+  b=\sqrt{c^2-a^2}  \\
+  c=\sqrt{a^2+b^2} 
+\end{align*}
+
+Thus the following applies for $a$, $b$ and $c$:
+\[
+  \begin{array}{c} % allows a bunch of formulas
+    a=\sqrt{b^2+c^2}  \\ 
+    b=\sqrt{c^2-a^2}  \\
+    c=\sqrt{a^2+b^2} 
+  \end{array}
+\]
+
+Many roads lead to Rome!
+
+\subsection{Aligned and unnumbered Formulas}
+There are two formulas that every child knows: 
+% Mathematical formula set off and aligned,
+\begin{align*}
+  a^2 + b^2 &= c^2   \\  
+  e &= m c^2
+\end{align*}
+
+\subsection{Aligned and numbered Formulas}
+There are two formulas that every child knows: 
+% Mathematical formula set off and aligned,
+\begin{align}
+  a^2 + b^2 &= c^2  \\  
+  e &= m c^2  
+\end{align}
+
+\subsection{Aligned, numbered and referenced Formulas}
+There are two formulas that every child knows: 
+% Mathematical formula set off and aligned,
+% with label for later referencing
+\begin{align}
+  a^2 + b^2 &= c^2     \label{eq.pythagoras}  \\  
+  e &= m c^2           \label{eq.einstein}  
+\end{align}
+
+% Referencing formulas with label
+Where \eqref{eq.pythagoras} is attributed to Pythagoras and \eqref{eq.einstein} to Albert Einstein.
+
+\subsection{Un-/Aligned, numbered and referenced Formula Blocks}
+
+Pythagoras says: If $a$ and $b$ are the cathets and $c$ is the hypotenuse, then holds: 
+\begin{displaymath} % only one formula allowed
+  a^2+b^2=c^2 
+\end{displaymath} 
+
+Thus the following applies for $a$, $b$ and $c$: 
+\begin{gather} % allows a bunch of formulas
+  a=\sqrt{b^2+c^2}  \label{pythagoras_1} \\ 
+  \sqrt{c^2-a^2}=b  \nonumber \\
+  c=\sqrt{a^2+b^2}  \nonumber
+\end{gather}
+
+Thus the following applies for $a$, $b$ and $c$: 
+\begin{align} % allows a bunch of formulas
+  a&=\sqrt{b^2+c^2}      \label{pythagoras_2} \\ 
+  \sqrt{c^2-a^2}&=b      \nonumber \\
+  c&=\sqrt{a^2+b^2}      \nonumber
+\end{align}
+
+This \eqref{pythagoras_1} and that \eqref{pythagoras_2} is only true if I have not made any mistakes in the transformation.
+
+\end{document}
